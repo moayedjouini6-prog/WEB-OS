@@ -1,0 +1,102 @@
+*, *::before, *::after {
+    cursor: none !important;
+}
+
+.close_button{
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+    background-color: red;
+    border: solid 1px rgba(255, 0, 0, 0.25);
+}
+
+.window{
+    border: solid;
+    border-radius: 23px;
+    padding: 23px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: whitesmoke;
+}
+
+.window_header{
+    margin-top: 0%;
+    margin-left: 2%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.selected{
+    border: solid;
+    border-color: whitesmoke;
+    border-radius: 23px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 25px;
+}
+
+.first_div{
+    background-color: #dfb0b0;
+    border-radius: 12px;
+    height: 100%;
+    padding: 16px;
+    font-family: Courier, monospace;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+.second_div{
+    background-color: #f1c9c9;
+    flex: 1;
+    padding: 16px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.heading_style{
+    margin: 0px 0px 4px 0px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.date_style{
+    font-size: 11px;
+    margin: 0px 0px 12px 0px;
+    color: #666;
+}
+
+.note_style_set{
+    overflow-y: auto;
+    flex: 1;
+    padding-right: 5px;
+}
+
+.note_style{
+    outline: none;
+    min-height: 100%;
+    line-height: 1.5;
+    color: #111;
+    user-select: text;
+}
+
+.hide-mouse {
+    cursor: none !important;
+    height: 100vh;
+    margin: 0;
+}
+
+.cursor{
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    pointer-events: none;
+    transition: transform 0.1s ease-out;
+    transform: translate(-50%, -50%); z-index: 9999;
+}

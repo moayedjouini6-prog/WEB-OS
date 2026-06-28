@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOAYEDOS</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body  style="font-family: Helvetica, Noto Sans, sans-serif; background-color: cadetblue; background-image: url('./Background.jpg'); background-size: cover; margin: 0; padding: 0; overflow: hidden; height: 100vh; width: 100vw; user-select: none;">
+    <img src="D_cursor.png" id="default_cursor" class="cursor" style="display: none;" >
+    <img src="P_cursor.png" id="pointer_cursor" class="cursor" style="display: none;" >
+    <img src="C_cursor.png" id="crosshair_cursor" class="cursor" style="display: none;" >
+    <div id="window" class="window" style="height: 260px; width: 280px; position: absolute; display: block; z-index: 2;">
+        <div style="display: block; justify-content: space-between;">
+            <p id="close_welcome" style="cursor: pointer;" class="close_button"></p>
+            <p id="welcomeheader" class="window_header">WELCOME!</p>
+        </div>
+        <h1 style="margin: 4px; font-size: 20px;">to MOAYEDOS!</h1>
+        <h2 style="margin: 4px; font-size: 16px;">Introduction</h2>
+        <h2 style="margin: 4px; font-size: 12px; font-weight: normal;">the first tunsian web os!</h2>
+        <img src="tunisia.png" alt="tunisia pic">
+    </div>
+    <div id="top" style="position: absolute; width: 100%; display: flex; backdrop-filter: blur(10px); background-color: rgba(0, 0, 0, 0.25); color: whitesmoke; top: 0%; justify-content: space-between; z-index: 9999; box-sizing: border-box; align-items: center; height: 40px; padding: 0 10px;">
+        <p style="margin: 0; font-weight: bold;">Moayed OS</p>
+        <p id="open_welcome" style="cursor: pointer; margin: 0; background: rgba(255,255,255,0.2); padding: 4px 8px; border-radius: 4px;">WELCOME!</p>
+        <p id="TIME" style="margin: 0;">الوقت</p>
+    </div>
+    <div id="apps" style="padding-top: 65px; padding-left: 30px; box-sizing: border-box; height: 100%; display: flex; gap: 25px; align-items: flex-start; position: relative;">
+        <div id="notetaker" class="window" style="height: 620px; width: 840px; display: none; position: absolute; background-color: #f0f0f0; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); overflow: hidden; z-index: 1;">
+            <div style="display: flex; justify-content: space-between; background-color: #333; color: white; padding: 8px 12px; align-items: center; box-sizing: border-box;">
+                <p id="notetakerheader" class="window_header" style="margin: 0; flex-grow: 1; cursor: move; font-weight: bold;">Note Taker</p>
+                <p id="notetaker_close" class="close_button"></p>
+            </div>
+            <h1 style="margin: 15px 15px 5px 15px; font-size: 24px; color: #222;">ملاحظاتك</h1>
+            <div style="display: flex; height: 490px; margin: 0 15px 15px 15px; box-sizing: border-box; gap: 15px;">
+                <div style="width: 240px; display: flex; flex-direction: column; gap: 10px; height: 100%; box-sizing: border-box;">
+                    <div id="noteList" style="flex: 1; background-color: rgba(255, 255, 255, 0.9); border-radius: 12px; padding: 10px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; border: 1px solid #ddd; box-sizing: border-box;"></div>
+                    <div style="background-color: #e2e8f0; border-radius: 12px; padding: 10px; border: 1px solid #cbd5e1; display: flex; flex-direction: column; gap: 6px; box-sizing: border-box;">
+                        <span style="font-size: 11px; font-weight: bold; color: #475569;">اصنع مفكرة جديدة</span>
+                        <input type="text" id="newNoteTitle" placeholder="Note Title..." style="width: 100%; padding: 6px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 12px; box-sizing: border-box; outline: none; background: white; color: black;">
+                        <textarea id="newNoteDesc" placeholder="Quick starter text..." style="width: 100%; height: 50px; padding: 6px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 12px; box-sizing: border-box; outline: none; resize: none; font-family: sans-serif; background: white; color: black;"></textarea>
+                        <button id="addNoteBtn" style="width: 100%; padding: 8px; background-color: #22c55e; color: white; border: none; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer;">+ اضاقة مفكرة</button>
+                    </div>
+                </div>
+                <div id="notesContent" style="flex: 1; height: 100%; box-sizing: border-box;"></div>
+            </div>
+        </div>
+        <div id="clicker" class="window" style="height: 480px; width: 580px; display: none; position: absolute; background-color: #ecfdf5; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); overflow: hidden; z-index: 1; border: 2px solid #059669;">
+            <div style="display: flex; justify-content: space-between; background-color: #059669; color: white; padding: 8px 12px; align-items: center; box-sizing: border-box;">
+                <p id="clickerheader" class="window_header" style="margin: 0; flex-grow: 1; cursor: move; font-weight: bold;">click v1.5</p>
+                <p id="clicker_close" class="close_button"></p>
+            </div>
+            <div style="display: flex; height: 420px; padding: 15px; box-sizing: border-box; gap: 15px;">
+                <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; background: white; border-radius: 12px; border: 1px solid #a7f3d0; padding: 10px;">
+                    <div id="scoreDisplay" style="font-size: 26px; font-weight: bold; color: #065f46; margin-bottom: 5px;"> 0 </div>
+                    <div id="cpsDisplay" style="font-size: 13px; color: #047857; margin-bottom: 25px; font-weight: bold;">ضغطة بالثانية: 0</div>
+                    <div id="bigCucumber" style="font-size: 90px; cursor: pointer; user-select: none; transition: transform 0.05s; display: inline-block;">click</div>
+                </div>
+                <div style="width: 230px; background: white; border-radius: 12px; padding: 12px; border: 1px solid #a7f3d0; display: flex; flex-direction: column; gap: 8px; overflow-y: auto; box-sizing: border-box;">
+                    <div style="font-size: 14px; font-weight: bold; color: #065f46; border-bottom: 2px solid #a7f3d0; padding-bottom: 5px; margin-bottom: 4px;">MOAYED Shop (Upgrades)</div>
+                    <button id="buyFarmBtn" style="width: 100%; padding: 8px; background-color: #10b981; color: white; border: none; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; text-align: left; display: flex; flex-direction: column; gap: 2px;">
+                        <span> ضعيف</span>
+                        <span id="farmCostDisplay" style="font-size: 10px; font-weight: normal; opacity: 0.9;">ضغطة: 15  (+1 CPS)</span>
+                    </button>
+                    <button id="buyGreenhouseBtn" style="width: 100%; padding: 8px; background-color: #059669; color: white; border: none; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; text-align: left; display: flex; flex-direction: column; gap: 2px;">
+                        <span> عادي</span>
+                        <span id="greenhouseCostDisplay" style="font-size: 10px; font-weight: normal; opacity: 0.9;">ضغطة: 100  (+8 CPS)</span>
+                    </button>
+                    <button id="buyLabBtn" style="width: 100%; padding: 8px; background-color: #047857; color: white; border: none; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; text-align: left; display: flex; flex-direction: column; gap: 2px;">
+                        <span>محترف</span>
+                        <span id="labCostDisplay" style="font-size: 10px; font-weight: normal; opacity: 0.9;">ضغطة: 500  (+45 CPS)</span>
+                    </button>
+                    <button id="buyAiBtn" style="width: 100%; padding: 8px; background-color: #064e3b; color: white; border: none; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; text-align: left; display: flex; flex-direction: column; gap: 2px;">
+                        <span>مخضرم</span>
+                        <span id="aiCostDisplay" style="font-size: 10px; font-weight: normal; opacity: 0.9;">ضغطة: 3,000  (+260 CPS)</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="CursorChanger" class="window" style="height: 120px; width: 300px; background-color: #fef3c7; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); overflow: hidden; z-index: 1; border: 2px solid #f59e0b; display: none; position: absolute;">
+            <div style="display: flex; justify-content: space-between; background-color: #f59e0b; color: white; padding: 8px 12px; align-items: center; box-sizing: border-box;">
+                <p id="CursorChangerheader" class="window_header" style="margin: 0; flex-grow: 1; cursor: move; font-weight: bold;">Cursor Changer</p>
+                <p id="CursorChanger_close" class="close_button"></p>
+            </div>
+            <div style="display: flex; height: 80px; padding: 15px; box-sizing: border-box; gap: 15px;">
+                <button id="default_cursor_btn" style="flex: 1; background-color: #fbbf24; border-radius: 6px; border: none; color: white; font-weight: bold; cursor: pointer;">normal</button>
+                <button id="pointer_cursor_btn" style="flex: 1; background-color: #f59e0b; border-radius: 6px; border: none; color: white; font-weight: bold; cursor: pointer;">Pointer</button>
+                <button id="crosshair_cursor_btn" style="flex: 1; background-color: #d97706; border-radius: 6px; border: none; color: white; font-weight: bold; cursor: pointer;">Valorant</button>
+            </div>
+        </div>
+        <div class="desktop-icon" style="width: 70px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center;" onclick="icon_tap(this)" data-target="notetaker">
+            <img src="./ICON1.png" alt="NoteTaker Icon" style="width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">
+            <p style="color: whitesmoke; margin: 6px 0 0 0; font-size: 13px; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); font-weight: bold;">NoteTaker</p>
+        </div>
+        <div class="desktop-icon" style="width: 70px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center;" onclick="icon_tap(this)" data-target="clicker">
+            <div style="width: 64px; height: 64px; border-radius: 16px; background-color: #059669; display: flex; align-items: center; justify-content: center; font-size: 36px; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">clicker</div>
+            <p style="color: whitesmoke; margin: 6px 0 0 0; font-size: 13px; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); font-weight: bold;">click</p>
+        </div>
+        <div class="desktop-icon" style="width: 70px; text-align: center; cursor: pointer; display: flex; flex-direction: column; align-items: center;" onclick="icon_tap(this)" data-target="CursorChanger">
+            <div style="width: 64px; height: 64px; border-radius: 16px; background-color: #f59e0b; display: flex; align-items: center; justify-content: center; font-size: 36px; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">🖱️</div>
+            <p style="color: whitesmoke; margin: 6px 0 0 0; font-size: 13px; text-shadow: 1px 1px 4px rgba(0,0,0,0.8); font-weight: bold;">Cursor Changer</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
